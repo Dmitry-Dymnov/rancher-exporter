@@ -1,0 +1,16 @@
+version: "3"
+services:
+  rancher_exporter:
+    image: harbor.local/library/rancher-exporter:1.0
+    container_name: rancher_exporter
+    restart: always
+    environment:
+    - rancher_token=token-12345:tokentokentokentokentokentokentoken
+    - rancher_endpoint=https://rancher.local/v3/
+    mem_limit: 512m
+    mem_reservation: 256M
+    cpus: 2.0
+    ports:
+      - '12009:12009'
+    expose:
+      - '12009'
